@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root{
+  --brand-black:#0F0E0E;
+  --brand-red:#541212;
+  --brand-green:#468A9A;
+  --brand-white:#EEEEEE;
+}
+
+body{
+  @apply px-15 w-full bg-[var(--brand-black)] text-[var(--brand-white)];
+}
+
+h1{
+  @apply text-center text-4xl font-bold py-10 ; 
+}
+.form-section{
+  @apply px-[3rem] py-[1rem] border-2 w-full md:max-w-[950px] mx-auto rounded-lg;
+}
+
+.form-section h2{
+  @apply text-xl font-bold py-[1rem] text-center;
+}
+.form{
+  @apply relative;
+}
+.input-section{
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  @apply px-[3rem] grid gap-[2rem];
+}
+
+.input-block{
+  @apply flex flex-col items-start justify-center;
+}
+
+.input-block label{
+  @apply text-[0.9rem] pb-[0.2rem];
+}
+
+ input{
+  @apply bg-[var(--brand-red)] w-full px-[1rem] py-[3px] outline-none rounded-sm; 
+}
+
+.submit-btn{
+  position: relative;
+  left:50%;
+  transform:translateX(-50%);
+  
+  @apply bg-[var(--brand-green)] block text-center mt-[2rem] mb-[1rem] py-[4px] px-[15px] rounded-sm hover:bg-[var(--brand-white)] hover:text-[var(--brand-black)] transition-all duration-300 ease-in-out cursor-pointer;
+}
