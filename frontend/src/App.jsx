@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InputData from "./InputData";
+import {studentsForm} from './API/studentForm.api.js';
 
 function App() {
   const [submittedData, setSubmittedData] = useState({});
@@ -14,6 +15,10 @@ function App() {
       email: formData.get("email"),
       place: formData.get("place"),
     }));
+    setTimeout(async()=>{
+      const result = await studentsForm(submittedData);
+      console.log("RESULT", result);
+    },2000)
   };
   useEffect(()=>{
     console.log("rendering");
