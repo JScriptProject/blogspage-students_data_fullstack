@@ -12,11 +12,10 @@ const studentsEntry = async (req, res) => {
       return res.status(400).json({ error: "Oops, email is not in correct format!!" });
     }
 
-    const response = await Student.create({ name, age, email, place });
+    const response = await Student.create({ name, age, email, place});
     if (!response) {
       return res.status(500).json({ error: "Issue while saving data" });
     }
-    console.log("Operation succesful!!");
     res.status(201).json({message:"Data added to DB successfully!"}, response);
   } catch (error) {
     console.error("Error occured", error);

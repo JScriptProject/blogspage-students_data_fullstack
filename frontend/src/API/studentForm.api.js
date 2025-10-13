@@ -10,8 +10,6 @@ const studentsForm = async (submittedData) => {
     };
   } catch (error) {
     const errorMessage = error.response.data.error || "Something went wrong";
-    console.log("Error in reposonse =>", error.response.data.error);
-
     return {
       success: false,
       error: errorMessage,

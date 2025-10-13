@@ -17,7 +17,6 @@ function App() {
     };
     setTimeout(async () => {
       const result = await studentsForm(data);
-      console.log(result);
       if (result.success) {
         setSuccessMessage(result.message);
         e.target.reset();
@@ -30,13 +29,10 @@ function App() {
 
   useEffect(() => {
     if (successMessage) {
-      console.log("Message from the operation:=> ", successMessage);
-      
       const timer = setTimeout(() => setSuccessMessage(null), 2000);
       return () => clearTimeout(timer);
     }
     if (showError) {
-      console.log("Error message", showError);
       const timer = setTimeout(() => setShowError(null), 2000);
       return () => clearTimeout(timer);
     }
