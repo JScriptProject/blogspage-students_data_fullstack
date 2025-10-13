@@ -1,9 +1,23 @@
 import axios from "axios";
 const studentsForm = async (submittedData) => {
-  const URI = "http://localhost:8000";
+  try {
+    const URI = "http://localhost:8000";
+    const response = await axios.post(`${URI}/api/student/save`, submittedData);
+    return {
+      success: true,
+      message: response.data.message,
+      status: response.status,
+    };
+  } catch (error) {
+    const errorMessage = error.response.data.error || "Something went wrong";
+    console.log("Error in reposonse =>", error.response.data.error);
 
-  const response = await axios.post(`${URI}/api/student/save`, submittedData);
-  return response.data;
+    return {
+      success: false,
+      error: errorMessage,
+      status: error.response?.status || 500,
+    };
+  }
 };
 
 export { studentsForm };

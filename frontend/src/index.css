@@ -48,3 +48,7 @@ h1{
   
   @apply bg-[var(--brand-green)] block text-center mt-[2rem] mb-[1rem] py-[4px] px-[15px] rounded-sm hover:bg-[var(--brand-white)] hover:text-[var(--brand-black)] transition-all duration-300 ease-in-out cursor-pointer;
 }
+
+.errorMessage{
+  @apply absolute ;
+}
