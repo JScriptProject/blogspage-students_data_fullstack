@@ -20,6 +20,7 @@ function App() {
       console.log(result);
       if (result.success) {
         setSuccessMessage(result.message);
+        e.target.reset();
       }
       else {
         setShowError(result.error);
@@ -28,10 +29,9 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("I am in Useeffect");
-
     if (successMessage) {
       console.log("Message from the operation:=> ", successMessage);
+      
       const timer = setTimeout(() => setSuccessMessage(null), 2000);
       return () => clearTimeout(timer);
     }
@@ -50,7 +50,7 @@ function App() {
         <h2>Student information Entry form</h2>
         <form onSubmit={onSubmitForm} className="form">
           <div className="input-section">
-            <InputData name="name" label="Name" type="text" />
+            <InputData name="name" label="Name" type="text" required />
             <InputData name="age" label="Age" type="number" required />
             <InputData name="email" label="Email" type="email" required />
             <InputData name="place" label="Place" type="text" required />
