@@ -11,12 +11,8 @@ async function connectDB() {
       "<db_password>",
       process.env.MONGO_PASSWORD
     );
-    const connectionStatus = await mongoose.connect(`${DB_URL}/blogspageDB`);
-    if (!connectionStatus) {
-      throw new Error("Error connecting Database!!");
-    }
-    console.log("Succesfully Connected!!", connectionStatus.connections[0].host);
-    return connectionStatus;
+    const dbConnection = await mongoose.connect(`${DB_URL}/blogspageDB`);
+    console.log("Succesfully Connected!!", dbConnection.connections[0].host);
   } catch (error) {
     console.error("Error occured in DB connection!", error);
     process.exit(1)
